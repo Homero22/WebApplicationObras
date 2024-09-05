@@ -5,6 +5,11 @@ using WebApplicationObras.Context;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Configura el puerto usando la variable de entorno `PORT`
+var port = Environment.GetEnvironmentVariable("PORT") ?? "80";
+
+builder.WebHost.UseUrls($"http://*:{port}");
+
 
 // Add services to the container.
 
